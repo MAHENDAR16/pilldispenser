@@ -1,0 +1,568 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	background:#19376d;
+	
+}
+
+body.active{
+	background: #5A666B;
+}
+.container{
+	width: 100%;
+	margin: auto;
+	padding: 0 50px;
+}
+.navbar{
+	display: flex;
+	padding: 20px;
+    margin-top: 8px;
+	align-items: center;
+    justify-content: space-evenly;
+    color: white;
+}
+
+nav{
+	flex: 1;
+	text-align: right;
+    z-index: 1000;
+}
+
+nav ul{
+	display: inline-block;
+	list-style: none;
+}
+
+nav ul li{
+	display: inline-block;
+	margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color:white;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+nav ul li a.active{
+    background-color: white;
+	padding: 10px;
+	color: #19376d;
+	border-radius: 10px;
+}
+p{
+	color: #555;
+}
+
+
+.menu_icon{
+	width: 28px;
+	margin-left: 20px;
+	display: none;
+    color:white;
+}
+
+@media only screen and (max-width: 700px)
+{
+	nav ul{
+		overflow: hidden;
+		position:absolute;
+		top: 70px;
+        z-index: 1000;
+		left: -100%;
+		transition: 4s;
+		background: #333;
+		width: 100%;
+	}
+	nav ul.active{
+		left: 0;
+	}
+	nav ul li{
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 50px;
+	}
+
+	nav ul li a{
+		color: #fff;
+	}
+    .logo h1{
+        font-size: 1.5rem;
+        margin-left: -20px;
+    }
+	.menu_icon{
+		cursor: pointer;
+		display: block;
+        background-color: white;
+        padding: 5px;
+        margin-left: 20px;
+        color: white;
+	}
+}
+
+/*--------------------------ADD PILL STYLING---------------------*/
+.pcontainer{
+    
+    height: 100%;
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+.pcontainer h1{
+    color: white;
+}
+.form_c{
+    width: fit-content;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+    flex-wrap: wrap;
+    background-color: rgba(255 , 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(100px);
+    box-shadow: 5px 5px 10px 3px rgba(255 , 255, 255, 0.3);
+    margin: 30px auto;
+}
+
+.form_c input{
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #0B2447;
+    border-radius: 10px;
+    text-decoration: none;
+    color: green;
+}
+
+.form_c input:focus{
+    border: 2px solid #0B2447;
+}
+.form_c label{
+    width: 250px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    color:#0B2447;
+    border: 2px solid #0B2447;
+}
+.form_left_c, .form_right_c, .form_center_c{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.btn{
+    padding: 10px;
+    background-color: white;
+    margin: auto;
+    width: 200px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    color: #111;
+    font-weight: 300;
+}
+
+/*-------------ALL PILLS PAGE-----------------*/
+
+.allpill_c{
+    margin: 50px auto;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.single_p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 1s;
+    gap:20px;
+   /* background-color:violet;
+    box-shadow: 3px 3px 10px 3px rgba(255 , 255, 255, 0.3);*/
+    background:rgba(255 , 255, 255, 0.1);
+    backdrop-filter: blur(200px);
+    box-shadow: 3px 5px 15px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    width: 250px;
+}
+
+.single_p:hover{
+    transform: translateY(-5px);
+}
+.single_p h1, .single_p h3{
+    font-size: 1.4rem;
+    color: white;
+    
+}
+.single_p table{
+    border:1px solid white
+}
+.single_p td, .single_p th{
+    padding: 10px;
+    border:1px solid white;
+    text-align: center;
+    color: white;
+}
+
+/*----------------------------TEAM PAGE-------------------------*/
+.whole_team{
+	width:90%;
+	margin: 40px auto 40px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+
+}
+
+.team_st{
+	font-weight: normal;
+	margin: 40px auto;
+    font-size: 2.4rem;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.team_st::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height:3px;
+    background-color:#fff;
+    bottom:-10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation:animate 4s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.single_team{
+	min-width: 300px;
+	backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	gap:14px;
+	padding: 20px;
+	font-size: 1.3rem;
+	color: #fff;
+	flex-direction: column;
+    background: rgba(255, 255 , 255, 0.1);
+   	border-radius: 20px;
+}
+
+.single_team:hover{
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.single_team img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+.single_team p{
+    color:white;
+}
+.single_team button{
+	font-size: 1.1rem;
+    color: #111;
+    background-color: #fff;
+    padding: 10px;
+    border:none;
+    opacity: 1;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+    margin-top: 5px;
+}
+
+.single_team button:hover{
+	opacity: 0.6;
+}
+
+
+/*-------------PROJINFO STYLING------------------*/
+.swiper{
+    height: 500px;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.swiper img{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    border-radius: 20px;
+}
+.single_desc{
+	display: flex;
+	margin-top: 40px;
+	justify-content: space-evenly;
+	align-items: center;
+    margin-bottom: 40px;
+}
+
+.single_desc_left{
+	flex-basis: 57%;
+	border: 2px solid red;
+}
+.single_desc_right{
+	flex-basis: 40%;
+	height: 500px;
+	
+	background-color: rgba(255, 255 , 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  
+}
+.single_desc_right p, .right_r p{
+	font-size: 1.2rem;
+	font-weight: 300;
+    color: white;
+
+}
+.single_desc_right:hover, .right_r:hover{
+	background-color: rgba(255, 255 , 255, 0.3);
+	transform: translateY(-10px);
+}
+
+
+/*---------------------PROGRESS STYLING----------------*/
+
+hr{
+	height: 2px;
+	
+	width: 95%;
+	margin:20px auto;
+	background-color: white;
+}
+
+
+.round_desc{
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.single_round{
+	display: flex;
+	align-items: center;
+	gap:20px;
+	justify-content: center;
+}
+
+.left_r{
+	height: 400px;
+	flex-basis: 25%;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.left_r span{
+	font-size: 2rem;
+    color: #111;
+    background-color: #fff;
+    padding: 20px;
+    border:none;
+    cursor: pointer;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+}
+
+.right_r{
+	height: 400px;
+	flex-basis: 70%;
+	background-color: rgba(255, 255 , 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.right_r p{
+	font-size: 1.2rem;
+	font-weight: 300;
+    color:white;
+}
+
+
+.round_center{
+	width: 3px;
+	height: 400px;
+	background-color: white;
+}
+
+@media only screen and (max-width:440px){
+	
+	
+	.single_round{
+		flex-direction: column;
+	}
+	.left_r span{
+		font-size: 1.1rem;
+	}
+	.round_center{
+		width: 0;
+		height: 0;
+	}
+}
+/*-----------------LOGIN----------------------*/
+.account_page{
+	padding: 50px 0;
+}
+
+.row{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.container{
+	width: 90%;
+	margin: auto;
+	padding: 0 50px;
+}
+.form_container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 350px;
+	height: 350px;
+	margin: 0;
+	padding: 20px 0px;
+	flex-direction: column;
+	text-align: center;
+	gap:30px;
+	box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+	background-color: white;
+}
+.fcol_2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 300px;
+	flex-basis: 50%;
+	margin-bottom: 25px;
+}
+.fcol_2 img{
+	width: 100%;
+}
+.form_container span{
+	font-weight: bold;
+	font-size: 1.5rem;
+	color: #19376d;
+	width: 100px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.form_btn{
+	display: inline-block;
+}
+
+.form_container form{
+	text-align: center;
+	padding: 0 20px;
+	
+	
+	transition: transform 1s;
+}
+
+form input{
+	width: 100%;
+	height: 30px;
+	border-radius: 10px;
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+
+.btnf{
+	padding: 10px;
+	border-radius: 20px;
+	background: #19376d;
+	color: white;
+	text-decoration: none;
+	width:100%;
+	border: none;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+
+
+form a{
+	font-size: 0.8rem;
+	color: #19376d;
+
+}
+
+.indicatorc{
+	width: 100px;/*should be same oas width of span*/
+	border: none;
+	background: #19376d;
+	height: 3px;
+	margin-top: 8px;
+	transform: translateX(100px);	
+	transition: transform 1s ;
+
+}
+.login_formc{
+	left: 0;
+}
+
+.reg_formc{
+	left: 0;
+}
