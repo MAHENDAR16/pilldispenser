@@ -5,7 +5,7 @@ function ProjInfo() {
     <>
         <div className={classes.single_desc}>
 			<div className={classes.swiper}>
-                <img src={require("../images/profile1.jpg")}/>
+                <img src={require("../images/pill.png")}/>
 			</div>
 
 			<div className={classes.single_desc_right}>
