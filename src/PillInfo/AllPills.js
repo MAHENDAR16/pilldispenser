@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import classes from '../HomePage.module.css'
 import { db } from '../firebase';
 import {doc, addDoc, getDocs, setDoc, collection} from 'firebase/firestore';
+import { Link } from 'react-router-dom';
 
 function AllPills() {
     const [pillData, setPillData] = useState([]);
@@ -28,7 +29,7 @@ function AllPills() {
                 <div className={classes.single_p} key = {x.name}>
                     <h1>{x.name}</h1>
                     <h3>Container - {x.container}</h3>
-                    <table >
+                    <table>
                         <tr>
                             <th>Time</th>
                             <th>Dosage</th>
@@ -67,6 +68,7 @@ function AllPills() {
                         </tr>
                         
                     </table>
+                    <Link to = {`/modify/${x.name}`} ><button>Modify</button></Link>
                 </div>
             )
         })}

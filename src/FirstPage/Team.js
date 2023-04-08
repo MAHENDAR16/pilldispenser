@@ -48,6 +48,27 @@ function Team() {
                 <p>designation</p>
                 <button>Brown Tag</button>
             </div>
+
+            <div className={classes.single_team}>
+                <img src={require("../images/profile1.jpg")}/>
+                <h1>name</h1>
+                <p>designation</p>
+                <button>Brown Tag</button>
+            </div>
+            
+            <div className={classes.single_team}>
+                <img src={require("../images/profile1.jpg")}/>
+                <h1>name</h1>
+                <p>designation</p>
+                <button>Brown Tag</button>
+            </div>
+
+            <div className={classes.single_team}>
+                <img src={require("../images/profile1.jpg")}/>
+                <h1>name</h1>
+                <p>designation</p>
+                <button>Brown Tag</button>
+            </div>
         </div>
     </>
   )

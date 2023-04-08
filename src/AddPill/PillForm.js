@@ -22,20 +22,31 @@ function PillForm() {
      //   const itemref = collection(db, "pillInfo");
         console.log(container)
         let container_c = container;
+        /**FOR ALLPILLS COLLECTION */
         const arrDosage = [parseInt(`${slot1}`), parseInt(`${slot2}`),parseInt(`${slot3}`), parseInt(`${slot4}`),
         parseInt(`${slot5}`), parseInt(`${slot6}`), parseInt(`${slot7}`), parseInt(`${slot8}`)]
+
         const dosstring = {"dos" : slot1 + slot2 + slot3 + slot4 + slot5 + slot6 + slot7 + slot8};
 
+        /*FOR PILLINFO COLLECTION */
+        const dosagestring = slot1.toString() + slot2.toString() + slot3.toString() + slot4.toString() + 
+        slot5.toString() + slot6.toString() + slot7.toString() + slot8.toString();
+
         /**TO GENERATE ZEROS IN FRONT OF THE STRING */
-        if(dosstring.length != 8){
+        /*if(dosstring.length != 8){
             let d = 8-dosstring.length;
             for(let i = 0;i<d;i++)
                 dosstring = "0" + dosstring;
-        }
+        }*/
 
+        if(dosagestring.length != 8){
+            let d = 8-dosagestring.length;
+            for(let i = 0;i<d;i++)
+                dosagestring = "0" + dosagestring;
+        }
         
         await setDoc(doc(db, "pillInfo", `${container}`), {
-            dosage : arrDosage,
+            dosage : dosagestring,
             //dosage : [1, 2, 3, 4, 5, 6 ,7, 7]
             //dosage : [slot1, slot2 ,slot3, slot4, slot5, slot6, slot7, slot8]
         })
@@ -95,7 +106,10 @@ function PillForm() {
         </>
         }
         {container !== 4 && <>
-        <h2 style={{margin:"5px 0px", color:"red"}}>Enter the data for {container}th container</h2>
+        <h2 style={{margin:"5px 0px", color:"red"}}>
+            
+            Enter the data for {container}<sup>st</sup> container
+        </h2>
         <form className={classes.form_c} >
             <div className={classes.form_left_c}>
                 <input type='text' placeholder='enter pill name' value = {pillname} onChange={(e)=>setpillname(e.target.value)}/>

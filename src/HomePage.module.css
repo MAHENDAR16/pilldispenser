@@ -18,7 +18,7 @@ body.active{
 }
 .container{
 	width: 100%;
-    border: 2px solid white;
+   
 	padding: 0 50px;
 }
 .navbar{
@@ -26,6 +26,7 @@ body.active{
 	padding: 20px;
     margin-top: 8px;
 	align-items: center;
+    gap:10px;
     justify-content: space-around;
     color: white;
 }
@@ -66,7 +67,7 @@ p{
 
 .menu_icon{
 	width: 28px;
-	margin-left: 20px;
+	margin-right: -40px;
 	display: none;
     color:white;
 }
@@ -98,14 +99,13 @@ p{
 	}
     .logo h1{
         font-size: 1.5rem;
-        margin-left: -20px;
+        margin-left: -50px;
     }
 	.menu_icon{
 		cursor: pointer;
 		display: block;
         background-color: white;
         padding: 5px;
-        margin-left: 20px;
         color: white;
 	}
 }
@@ -137,11 +137,12 @@ p{
 
 .form_c input{
     width: 250px;
-    padding: 10px;
+	margin: 0;
     border: 2px solid #0B2447;
     border-radius: 10px;
     text-decoration: none;
     color: green;
+	height: 30px;
 }
 
 .form_c input:focus{
@@ -151,17 +152,23 @@ p{
     width: 250px;
     font-weight: bold;
     border-radius: 10px;
-    padding: 10px;
+	margin: 0;
+	font-size: 1rem;
+	padding: 3px;
+	text-align: center;
+    align-content: center;
+	height: 30px;
     background-color: white;
     color:#0B2447;
     border: 2px solid #0B2447;
 }
 .form_left_c, .form_right_c, .form_center_c{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     flex-direction: column;
+	/*border: 2px solid red;*/
 }
 
 .btn{
@@ -174,8 +181,12 @@ p{
     font-size: 1.1rem;
     color: #111;
     font-weight: 300;
+	transition: 0.5s ease;
 }
 
+.btn:hover{
+	background-color: green;
+}
 /*-------------ALL PILLS PAGE-----------------*/
 
 .allpill_c{
@@ -280,6 +291,7 @@ p{
 	flex-direction: column;
     background: rgba(255, 255 , 255, 0.1);
    	border-radius: 20px;
+	transition: 1s ease;
 }
 
 .single_team:hover{
@@ -293,7 +305,7 @@ p{
 .single_team p{
     color:white;
 }
-.single_team button{
+.single_team button, .single_p button{
 	font-size: 1.1rem;
     color: #111;
     background-color: #fff;
@@ -308,7 +320,7 @@ p{
     margin-top: 5px;
 }
 
-.single_team button:hover{
+.single_team button:hover, .single_p button:hover{
 	opacity: 0.6;
 }
 
