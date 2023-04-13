@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header'
 import Progress from './Progress'
 import ProjInfo from './ProjInfo'
+import Footer from '../Footer'
 
 function MainFirst() {
   return (
@@ -9,6 +10,7 @@ function MainFirst() {
       <Header/>
       <ProjInfo/>
       <Progress/>
+      <Footer/>
     </>
   )
 }

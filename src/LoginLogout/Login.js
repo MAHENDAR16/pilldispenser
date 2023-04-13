@@ -4,16 +4,22 @@ import classes from '../HomePage.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { authActions } from '../globalstore/auth';
+import { db } from '../firebase';
+import { doc, getDocs, collection } from 'firebase/firestore';
+import { useSelector, useDispatch } from 'react-redux';
+import Footer from '../Footer';
 function Login() {
     const [name, setName] = useState('');
     const [pass, setPass] = useState('');
     const navigate = useNavigate();
-   
+    const [msg, setMsg] = useState('')
+    const dispatch = useDispatch()
     const loginHandler = async(event)=>{
         event.preventDefault();
         
-        //const userRef = collection(db, "userDetails");
-        /*const data = await getDocs(userRef);
+        const userRef = collection(db, "userDetails");
+        const data = await getDocs(userRef);
         const filteredData = data.docs.map((doc)=>({
             ...doc.data(),
         }))
@@ -29,7 +35,6 @@ function Login() {
             dispatch(authActions.login(name));
             navigate('/');
         }
-*/
         setName('');
         setPass('');
         
@@ -47,7 +52,7 @@ function Login() {
 
                             <div className={classes.form_container}>
                                 <span style={{marginTop:"10px"}}>Login</span>
-                              {/*  {msg!==null && <h3>{msg}</h3>}*/}
+                                {msg!==null && <h3>{msg}</h3>}
                                 <form>
                                     <input type="text" name="" placeholder="Enter your name"
                                     onChange={(e)=>setName(e.target.value)} value = {name}/>                                    
@@ -66,6 +71,7 @@ function Login() {
                     </div>
                 </div>
 	        </div>
+            <Footer/>
     </>
   )
 }

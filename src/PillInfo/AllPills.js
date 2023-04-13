@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classes from '../HomePage.module.css'
 import { db } from '../firebase';
-import {doc, addDoc, getDocs, setDoc, collection} from 'firebase/firestore';
-import { Link } from 'react-router-dom';
-
+import {doc, addDoc, getDocs, setDoc, collection, deleteDoc} from 'firebase/firestore';
+import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../Footer';
+import classNames from 'classnames';
+import ReactToPrint from 'react-to-print';
 function AllPills() {
+    let compref = useRef();
     const [pillData, setPillData] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const retriveData = async()=>{
@@ -21,10 +24,33 @@ function AllPills() {
 
     useEffect(()=>retriveData, [])
     console.log(pillData)
+    const navigate = useNavigate();
+    const deleteInFire = async(cd, name)=>{
+        
+        await deleteDoc(doc(db, "pillInfo", `${cd}`)).then(()=>{
+            console.log("deleted");
+        });
+        await deleteDoc(doc(db, "allpills", `${name}`)).then(()=>{
+            console.log("deleted");
+        });
+        retriveData();
+        
+    }
   return (
-    <div className = {classes.allpill_c}>
+    <>
+    <div className={classes.abtnhold}>
+        <ReactToPrint trigger={()=>{
+            return <button className={classNames(classes.btn, classes.abtn)}>Print Prescription</button>
+        }}
+        pageStyle = "document"
+        documentTitle = "prescription"
+        content = {()=>compref}
+        />
+    </div>
+    <div className = {classes.allpill_c} ref = {(el) => {compref = el}}>
         {isLoading === true && <h2 style={{color:"white"}}>Data Is Loading</h2>}
-        {pillData.map((x)=>{
+            
+        {isLoading === false && pillData.map((x)=>{
             return (
                 <div className={classes.single_p} key = {x.name}>
                     <h1>{x.name}</h1>
@@ -69,10 +95,13 @@ function AllPills() {
                         
                     </table>
                     <Link to = {`/modify/${x.name}`} ><button>Modify</button></Link>
+                    <button onClick = {()=>deleteInFire(x.container, x.name)}>Delete Pill</button>
                 </div>
             )
         })}
     </div>
+    {isLoading === false && <Footer/>}
+    </>
   )
 }
 

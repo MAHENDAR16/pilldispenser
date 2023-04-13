@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Header from '../Header'
 import { useNavigate, useParams } from 'react-router-dom'
 import classes from '../HomePage.module.css'
-import { collection, getDoc, getDocs, doc, setDoc} from 'firebase/firestore';
+import { collection, getDoc, getDocs, doc, setDoc, deleteDoc} from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer';
 function ModifyPill() {
     
     const [container, setcontainer] = useState(0);
@@ -78,6 +79,8 @@ function ModifyPill() {
         navigate('/pill-info')
         setbackendload(false);
     }
+
+    
     return (
         <>
             <Header/>
@@ -88,8 +91,9 @@ function ModifyPill() {
             <>
                 <form className={classes.form_c} >
                 <div className={classes.form_left_c}>
-                    <label>{pillname}</label>
-                
+                    {/*<label>{pillname}</label>*/}
+                    <input type='text' placeholder='enter pill name' value = {pillname} 
+                    onChange={(e)=>setpillname(e.target.value)}/>
                     <label>Container - {container}</label>
                     <label for = "t1">10:00-11:00</label>
                     <input id = "t1" type='number' placeholder='Enter Dosage(0 if no dosage)' min = "0" 
@@ -131,9 +135,12 @@ function ModifyPill() {
             </form>
         
             <button className={classes.btn} onClick = {modifyInFire}>Modify Pill</button>
+            
         </>
         }
+
         </div>
+        {backendload == false && isLoading === false &&  <Footer/>}
         </>
     )
 }

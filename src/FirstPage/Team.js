@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../Header'
 import classes from '../HomePage.module.css'
+import Footer from '../Footer'
 function Team() {
   return (
     <>
@@ -70,6 +71,7 @@ function Team() {
                 <button>Brown Tag</button>
             </div>
         </div>
+        <Footer/>
     </>
   )
 }

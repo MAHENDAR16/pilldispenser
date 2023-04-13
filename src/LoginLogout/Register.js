@@ -4,7 +4,9 @@ import classes from '../HomePage.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { db } from '../firebase';
+import { doc, setDoc, collection } from 'firebase/firestore';
+import Footer from '../Footer';
 export default function Register() {
     const [name, setName] = useState('');
     const [pass, setPass] = useState('');
@@ -12,13 +14,18 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const registerHandler = async(e)=>{
         e.preventDefault();
-        /*const userRef = collection(db, "userDetails");
-        await addDoc(userRef, {
+
+       // const userRef = collection(db, "userDetails");
+        await setDoc(doc(db, "userDetails", `${name}`), {
             username : name,
             password : pass, 
             email : email,
+        }).then(()=>{
+            console.log("doc is uploaded")
+        }).catch(()=>{
+            console.log("eeror")
         })
-        */
+        
         setName('');
         setEmail('');
         setPass('');
@@ -57,6 +64,7 @@ export default function Register() {
                     </div>
                 </div>
 	        </div>
+            <Footer/>
     </>
   )
 }

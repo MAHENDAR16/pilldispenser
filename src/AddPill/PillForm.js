@@ -5,6 +5,7 @@ import {doc, addDoc, getDocs, setDoc, collection} from 'firebase/firestore';
 import { json, useNavigate } from 'react-router-dom';
 import { database } from '../firebase';
 import { getDatabase, ref, set } from "firebase/database";
+import { useSelector } from 'react-redux';
 let container = 1;
 function PillForm() {
     const [pillname, setpillname] = useState('');
@@ -17,7 +18,9 @@ function PillForm() {
     const [slot6, setSlot6] = useState(0);
     const [slot7, setSlot7] = useState(0);
     const [slot8, setSlot8] = useState(0);
-
+    const username = useSelector((state)=>state.auth.username);
+    const isLogin = useSelector((state)=>state.auth.isLogin);
+    const navigate = useNavigate();
     const uploadData = async()=>{
      //   const itemref = collection(db, "pillInfo");
         console.log(container)
@@ -90,14 +93,17 @@ function PillForm() {
         setSlot6(0);
         setSlot7(0);
         setSlot8(0);
-        
+        window.scrollTo(0, 0);
     }
-    const navigate = useNavigate();
+    
     const change = ()=>{
         navigate('/pill-info')
     }
   return (
     <div className={classes.pcontainer}>
+        {/*!isLogin && <button className={classes.btn} onClick={()=>{
+            navigate('/login');
+        }}>Navigate to Login</button>*/}
         <h1 style={{margin:"12px 0px"}}>Add the dosage for the respective time slot[Zero if no dosage is required at that time slot]</h1>
         {container === 4 && 
         <>
