@@ -40,17 +40,18 @@ function AllPills() {
     <>
     <div className={classes.abtnhold}>
         <ReactToPrint trigger={()=>{
-            return <button className={classNames(classes.btn, classes.abtn)}>Print Prescription</button>
+                return <button className={classNames(classes.btn, classes.abtn)}>Print Prescription</button>
         }}
         pageStyle = "document"
         documentTitle = "prescription"
         content = {()=>compref}
+        copyStyles = "false"
         />
     </div>
     <div className = {classes.allpill_c} ref = {(el) => {compref = el}}>
-        {isLoading === true && <h2 style={{color:"white"}}>Data Is Loading</h2>}
+        {isLoading == true && <h2 style={{color:"white"}}>Data Is Loading</h2>}
             
-        {isLoading === false && pillData.map((x)=>{
+        {isLoading == false && pillData.map((x)=>{
             return (
                 <div className={classes.single_p} key = {x.name}>
                     <h1>{x.name}</h1>

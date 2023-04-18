@@ -20,7 +20,9 @@ function PillForm() {
     const [slot8, setSlot8] = useState(0);
     const username = useSelector((state)=>state.auth.username);
     const isLogin = useSelector((state)=>state.auth.isLogin);
+    console.log(isLogin)
     const navigate = useNavigate();
+    
     const uploadData = async()=>{
      //   const itemref = collection(db, "pillInfo");
         console.log(container)
@@ -62,6 +64,7 @@ function PillForm() {
         
         //const arr = [1, 2, 3]
         //WRITE DATA TO REAL TIME DB WITH FETCH
+        /*
         const res = await fetch(`https://pilldispenser-f2539-default-rtdb.firebaseio.com/pillInfo/${container_c}.json`,
         {
             method:"POST",
@@ -72,7 +75,7 @@ function PillForm() {
             body : JSON.stringify(dosstring),
         })
 
-       /* const db = getDatabase();
+        const db = getDatabase();
             set(ref(db, 'pillInfo/' + container_c), {
                 dosage : arrDosage,
             });*/
@@ -101,20 +104,20 @@ function PillForm() {
     }
   return (
     <div className={classes.pcontainer}>
-        {/*!isLogin && <button className={classes.btn} onClick={()=>{
+        {!isLogin && <button className={classes.btn} onClick={()=>{
             navigate('/login');
-        }}>Navigate to Login</button>*/}
-        <h1 style={{margin:"12px 0px"}}>Add the dosage for the respective time slot[Zero if no dosage is required at that time slot]</h1>
-        {container === 4 && 
+        }}>Navigate to Login</button>}
+        {/*isLogin && <h1 style={{margin:"12px 0px"}}>Add the dosage for the respective time slot[Zero if no dosage is required at that time slot]</h1>*/}
+        {isLogin && container === 6 && 
         <>
             <h1 style={{margin:"10px 0px"}}>ALL DATA ADDED SUCCESFULLY</h1>
             <button onClick={change} className={classes.btn}>View Pills</button>
         </>
         }
-        {container !== 4 && <>
+        {isLogin && container !== 6 && <>
         <h2 style={{margin:"5px 0px", color:"red"}}>
             
-            Enter the data for {container}<sup>st</sup> container
+            Enter the data for Container - {container}
         </h2>
         <form className={classes.form_c} >
             <div className={classes.form_left_c}>

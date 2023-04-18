@@ -37,7 +37,7 @@ export default function Register() {
                 <div className={classes.container}>
                     <div className={classes.row}>
                         <div className={classes.fcol_2}>
-                            <img src={require("../images/pill.png")} width="100%"/>
+                            <img src={require("../images/pill1.png")} width="100%"/>
                         </div>	
                         <div className={classes.fcol_2}>
 

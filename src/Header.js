@@ -11,7 +11,7 @@ const Header = ()=>{
 		setToggleMenu((prev) => !prev);
 	}
 	const username = useSelector((state)=>state.auth.username);
-	const isLoggedin = useSelector((state)=>state.auth.isLoggedin);
+	const isLoggedin = useSelector((state)=>state.auth.isLogin);
 	const navigate = useNavigate();
 	//const s = useNavigate();
 	const logoutUser = ()=>{
@@ -22,7 +22,7 @@ const Header = ()=>{
         <div className={classes.container}>
 			<div className={classes.navbar}>
 				<div className={classes.logo}>
-					<h1>Pill Dispenser</h1>
+					<h1>Automatic Pill Dispenser</h1>
 				</div>
 				<nav>
 					{!toggleMenu &&

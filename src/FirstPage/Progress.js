@@ -13,8 +13,8 @@ function Progress() {
       }, []);
   return (
     <>
-        <hr/>
-        <div className={classes.round_desc}>
+        
+       {/* <div className={classes.round_desc}>
 			<div className={classes.single_round} data-aos="fade-down-right" data-aos-duration="800" data-aos-easing="ease-in-out">
 				<div className={classes.left_r}>
 					<span>Week 1</span>
@@ -48,6 +48,26 @@ function Progress() {
 				</div>
 			</div>
 			<hr/>
+		</div>
+  	*/}
+		<h1 className={classes.team_st}>SYNOPSIS</h1>
+		<div className={classes.imgc}>
+			<div className={classes.single_img}>
+				<img src = {require('../images/pimg1.jpeg')}></img>
+			</div>
+			<div className={classes.single_img}>
+				<img src = {require('../images/pimg2.jpeg')}></img>
+			</div>
+			<div className={classes.single_img}>
+				<img src = {require('../images/pimg3.jpeg')}></img>
+			</div>
+		</div>
+		<h1 className={classes.team_st}>PROPOSED BUDGET</h1>
+		<div className={classes.billc}>
+			<div className={classes.single_bimg}>
+				<img src={require('../images/bill.jpeg')}></img>
+			</div>
+			
 		</div>
     </>
   )

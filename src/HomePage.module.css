@@ -2,27 +2,55 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: sans-serif, 'Poppins';
 }
 
 @media print {
+	html{
+		background-color: yellow;
+	}
 	.allpill_c {
-	  border: 2px solid black;
+		flex-direction: column;
 	  padding: 30px;
-	 
-	  background-color: burlywood;
+		color:black;
+	}
+	
+	.allpill_c button{
+		display: none;
 	}
 	.single_p{
-		background: red;
-		border: 2px solid gold;
+		display: inline-block;
+		cursor: pointer;
+		transition: 1s;
+		border: 2px solid black;
+		gap:10px;
+	   /* background-color:violet;
+		box-shadow: 3px 3px 10px 3px rgba(255 , 255, 255, 0.3);*/
+		box-shadow: none;
+		background: rgb(11, 101, 154);
+		padding: 15px;
+		width: 150px;
 	}
-  }
+	
+	.single_p h1, .single_p h3{
+		font-size: 1rem;
+		color: #111;
+		
+	}
+	.single_p table{
+		border:1px solid black;
+	}
+	.single_p td, .single_p th{
+		padding: 2px;
+		border:1px solid black;
+		text-align: center;
+		color: black;
+	}
+	
+}
 body{
 	font-family: 'Poppins', sans-serif;
 	background:#19376d;
-    margin: 0;
-    padding: 0;
-	
 }
 
 body.active{
@@ -34,9 +62,10 @@ body.active{
 	padding: 0 50px;
 }
 .navbar{
+	
 	display: flex;
 	padding: 20px;
-    margin-top: 8px;
+	margin: 8px -50px 0 -50px;
 	align-items: center;
     gap:10px;
     justify-content: space-around;
@@ -87,6 +116,13 @@ p{
 
 @media only screen and (max-width: 900px)
 {
+	.navbar{
+		margin: 8px 0 0 0;
+	}
+	.navbar .logo h1{
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
 	nav ul{
 		overflow: hidden;
 		position:absolute;
@@ -122,6 +158,57 @@ p{
         color: white;
 	}
 }
+
+/*---------------SYNOPSIS-------------------*/
+.imgc{
+	display: flex;
+	justify-content: space-evenly;
+	gap: 15px;
+	padding: 20px;
+	flex-wrap: wrap;
+}
+
+.single_img{
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	transition: 0.5s ease;
+	border-radius: 20px;
+}
+
+.single_img:hover{
+	transform: translateY(-10px);
+}
+.single_img img{
+	text-align: center;
+	width: 250px;
+	height: 250px;
+	background-position: center;
+	background-size: cover;
+}
+
+.billc{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.single_bimg{
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	transition: 0.5s ease;
+	border-radius: 20px;
+
+}
+.single_bimg:hover{
+	transform: translateY(-10px);
+}
+
+
 
 /*--------------------------ADD PILL STYLING---------------------*/
 .pcontainer{
@@ -307,6 +394,7 @@ p{
 	gap:14px;
 	padding: 20px;
 	font-size: 1.3rem;
+	min-width: 300px;
 	color: #fff;
 	flex-direction: column;
     background: rgba(255, 255 , 255, 0.1);
@@ -321,6 +409,10 @@ p{
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
+}
+.single_team h1{
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 .single_team p{
     color:white;
